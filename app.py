@@ -35,8 +35,9 @@ if st.button("Fetch Trending Tokens"):
             guide = generate_crypto_guide(selected_token, region, faqs, sources, content_type)
             st.markdown(guide)
 
-            filename = f"{selected_token.lower().replace(' ', '_')}_{content_type.lower().replace('/', '').replace(' ', '_')}_{region}.md"
-            save_to_markdown(guide, filename)
-            st.download_button("⬇️ Download Markdown", data=guide, file_name=filename)
+            filename_base = f"{selected_token.lower().replace(' ', '_')}_{content_type.lower().replace('/', '').replace(' ', '_')}_{region.lower()}"
+            save_to_markdown(guide, filename_base)
+
+            st.download_button("⬇️ Download Markdown", data=guide, file_name=f"{filename_base}.md")
     else:
         st.warning("No trending tokens found for this region.")
