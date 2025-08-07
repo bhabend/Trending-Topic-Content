@@ -9,7 +9,8 @@ from guide_generator.utils import save_to_markdown, region_code_map
 st.set_page_config(layout="centered")
 st.title("🪙 Localized Crypto Guide Generator")
 
-region = st.selectbox("🌍 Select Region", ["India", "USA", "UK", "Canada", "Australia"])
+# ✅ "Worldwide" added to region selection
+region = st.selectbox("🌍 Select Region", ["Worldwide", "India", "USA", "UK", "Canada", "Australia"])
 content_type = st.selectbox("📝 Content Type", ["Blog / Evergreen", "News / Trending"])
 keyword = st.text_input("🔍 Broad keyword (default: crypto)", value="crypto")
 timeframe = st.selectbox("📆 Timeframe", ["now 7-d", "today 3-m", "today 12-m"])
