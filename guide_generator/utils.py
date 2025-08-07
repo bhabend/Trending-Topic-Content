@@ -1,9 +1,12 @@
 import os
 from datetime import datetime
 
-def save_to_markdown(content, filename):
+def save_to_markdown(content, filename_base):
     output_dir = "generated_guides"
     os.makedirs(output_dir, exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H%M")
+    filename = f"{filename_base}_{timestamp}.md"
     filepath = os.path.join(output_dir, filename)
 
     with open(filepath, "w", encoding="utf-8") as f:
